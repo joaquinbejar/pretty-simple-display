@@ -1,0 +1,23 @@
+[package]
+name = "pretty-simple-display"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Custom derive macros for JSON serialization with pretty and simple formatting"
+repository = "https://github.com/joaquinbejar/pretty-simple-display"
+keywords = ["serde", "json", "derive", "serialization", "formatting"]
+categories = ["development-tools", "encoding"]
+authors = ["Joaquin Bejar <jb@taunais.com>"]
+
+[lib]
+proc-macro = true
+path = "src/lib.rs"
+
+[dependencies]
+proc-macro2 = "1.0"
+quote = "1.0"
+syn = { version = "2.0", features = ["full"] }
+
+[dev-dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
