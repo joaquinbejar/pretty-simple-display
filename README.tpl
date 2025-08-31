@@ -1,7 +1,6 @@
-<div style="text-align: center;">
-<img src="https://raw.githubusercontent.com/joaquinbejar/pretty-simple-display/refs/heads/main/doc/images/logo.png" alt="pretty-simple-display" style="width: 100%; height: 100%;">
-</div>
+# PRETTY SIMPLE DISPLAY
 
+[![Rust](https://img.shields.io/badge/rust-1.70+-blue.svg)](https://www.rust-lang.org/)
 [![Dual License](https://img.shields.io/badge/license-MIT%20and%20Apache%202.0-blue)](./LICENSE)
 [![Crates.io](https://img.shields.io/crates/v/pretty-simple-display.svg)](https://crates.io/crates/pretty-simple-display)
 [![Downloads](https://img.shields.io/crates/d/pretty-simple-display.svg)](https://crates.io/crates/pretty-simple-display)

@@ -1,7 +1,6 @@
-<div style="text-align: center;">
-<img src="https://raw.githubusercontent.com/joaquinbejar/pretty-simple-display/refs/heads/main/doc/images/logo.png" alt="pretty-simple-display" style="width: 100%; height: 100%;">
-</div>
+# PRETTY SIMPLE DISPLAY
 
+[![Rust](https://img.shields.io/badge/rust-1.70+-blue.svg)](https://www.rust-lang.org/)
 [![Dual License](https://img.shields.io/badge/license-MIT%20and%20Apache%202.0-blue)](./LICENSE)
 [![Crates.io](https://img.shields.io/crates/v/pretty-simple-display.svg)](https://crates.io/crates/pretty-simple-display)
 [![Downloads](https://img.shields.io/crates/d/pretty-simple-display.svg)](https://crates.io/crates/pretty-simple-display)
@@ -15,7 +14,185 @@
 [![Wiki](https://img.shields.io/badge/wiki-latest-blue.svg)](https://deepwiki.com/joaquinbejar/pretty-simple-display)
 
 
+## pretty-simple-display
 
+Custom derive macros for JSON serialization with pretty and simple formatting options.
+
+This crate provides four derive macros that implement `Debug` and `Display` traits using JSON serialization:
+
+- **`DebugPretty`**: Implements `Debug` with pretty-printed JSON output
+- **`DisplayPretty`**: Implements `Display` with pretty-printed JSON output
+- **`DebugSimple`**: Implements `Debug` with compact JSON output
+- **`DisplaySimple`**: Implements `Display` with compact JSON output
+
+### Quick Start
+
+Add this to your `Cargo.toml`:
+
+```toml
+[dependencies]
+pretty-simple-display = "0.1.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+```
+
+### Basic Usage
+
+```rust
+use pretty_simple_display::{DebugPretty, DisplaySimple};
+use serde::Serialize;
+
+#[derive(Serialize, DebugPretty, DisplaySimple)]
+struct User {
+    id: u64,
+    name: String,
+    email: String,
+}
+
+let user = User {
+    id: 1,
+    name: "Alice".to_string(),
+    email: "alice@example.com".to_string(),
+};
+
+// Pretty-printed JSON via Debug
+format!("{:?}", user);
+// Compact JSON via Display
+format!("{}", user);
+```
+
+### Output Comparison
+
+#### Pretty vs Simple Formatting
+
+**Pretty formatting** (using `DebugPretty` or `DisplayPretty`):
+```json
+{
+  "id": 1,
+  "name": "Alice",
+  "email": "alice@example.com"
+}
+```
+
+**Simple formatting** (using `DebugSimple` or `DisplaySimple`):
+```json
+{"id":1,"name":"Alice","email":"alice@example.com"}
+```
+
+### Advanced Usage
+
+#### Multiple Derives on Same Struct
+
+```rust
+use pretty_simple_display::{DebugPretty, DisplaySimple};
+use serde::Serialize;
+
+#[derive(Serialize, DebugPretty, DisplaySimple)]
+struct Product {
+    id: u32,
+    name: String,
+    price: f64,
+}
+
+let product = Product {
+    id: 123,
+    name: "Widget".to_string(),
+    price: 29.99,
+};
+
+// Debug uses pretty formatting
+println!("{:?}", product);
+// Output:
+// {
+//   "id": 123,
+//   "name": "Widget",
+//   "price": 29.99
+// }
+
+// Display uses simple formatting
+println!("{}", product);
+// Output: {"id":123,"name":"Widget","price":29.99}
+```
+
+#### Working with Enums
+
+```rust
+use pretty_simple_display::DebugPretty;
+use serde::Serialize;
+
+#[derive(Serialize, DebugPretty)]
+enum Status {
+    Active,
+    Inactive,
+    Pending { reason: String },
+}
+
+let status1 = Status::Active;
+let status2 = Status::Pending { reason: "Verification".to_string() };
+
+println!("{:?}", status1); // "Active"
+println!("{:?}", status2);
+// {
+//   "Pending": {
+//     "reason": "Verification"
+//   }
+// }
+```
+
+#### Nested Structures
+
+```rust
+use pretty_simple_display::DisplaySimple;
+use serde::Serialize;
+
+#[derive(Serialize)]
+struct Address {
+    street: String,
+    city: String,
+}
+
+#[derive(Serialize, DisplaySimple)]
+struct Person {
+    name: String,
+    address: Address,
+    tags: Vec<String>,
+}
+
+let person = Person {
+    name: "John".to_string(),
+    address: Address {
+        street: "123 Main St".to_string(),
+        city: "Anytown".to_string(),
+    },
+    tags: vec!["developer".to_string(), "rust".to_string()],
+};
+
+println!("{}", person);
+// {"name":"John","address":{"street":"123 Main St","city":"Anytown"},"tags":["developer","rust"]}
+```
+
+### Error Handling
+
+All macros handle serialization errors gracefully by displaying an error message instead of panicking:
+
+```
+Error serializing to JSON: <error_details>
+```
+
+### Requirements
+
+- Your struct must implement `serde::Serialize`
+- The `serde` crate must be available in your dependencies
+- Compatible with all types that serde can serialize (structs, enums, primitives, collections, etc.)
+
+### Feature Comparison
+
+| Derive Macro | Trait | Format | Use Case |
+|--------------|-------|---------|----------|
+| `DebugPretty` | `Debug` | Pretty JSON | Development, debugging, logs |
+| `DisplayPretty` | `Display` | Pretty JSON | User-facing output, formatted display |
+| `DebugSimple` | `Debug` | Compact JSON | Performance-critical debugging |
+| `DisplaySimple` | `Display` | Compact JSON | APIs, compact serialization |
 
 
 
