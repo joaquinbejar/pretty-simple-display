@@ -1,5 +1,3 @@
-# PRETTY SIMPLE DISPLAY
-
 [![Rust](https://img.shields.io/badge/rust-1.70+-blue.svg)](https://www.rust-lang.org/)
 [![Dual License](https://img.shields.io/badge/license-MIT%20and%20Apache%202.0-blue)](./LICENSE)
 [![Crates.io](https://img.shields.io/crates/v/pretty-simple-display.svg)](https://crates.io/crates/pretty-simple-display)
@@ -193,7 +191,6 @@ Error serializing to JSON: <error_details>
 | `DisplayPretty` | `Display` | Pretty JSON | User-facing output, formatted display |
 | `DebugSimple` | `Debug` | Compact JSON | Performance-critical debugging |
 | `DisplaySimple` | `Display` | Compact JSON | APIs, compact serialization |
-
 
 
 ## Contribution and Contact
