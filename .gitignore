@@ -28,3 +28,4 @@ src/.DS_Store
 /tarpaulin-report.html
 .secrets
 /coverage/tarpaulin-report.html
+/coverage/cobertura.xml
