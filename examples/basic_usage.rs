@@ -71,8 +71,8 @@ fn main() {
     println!("\nUser Display (Pretty): {}", user);
 
     println!("\n=== Order Item Examples ===");
-    println!("OrderItem Debug (Simple): {:?}", &items[0]);
-    println!("OrderItem Display (Simple): {}", &items[0]);
+    println!("OrderItem Debug (Simple): {:?}", items[0]);
+    println!("OrderItem Display (Simple): {}", items[0]);
 
     println!("\n=== Order Examples ===");
     println!("Order Debug (Pretty): {:?}", order);
