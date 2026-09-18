@@ -15,7 +15,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! pretty-simple-display = "0.1.0"
+//! pretty-simple-display = "0.1.1"
 //! serde = { version = "1.0", features = ["derive"] }
 //! serde_json = "1.0"
 //! ```
