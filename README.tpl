@@ -27,9 +27,12 @@ We welcome contributions to this project! If you would like to contribute, pleas
 
 If you have any questions, issues, or would like to provide feedback, please feel free to contact the project maintainer:
 
-**Joaquín Béjar García**
-- Email: jb@taunais.com
-- GitHub: [joaquinbejar](https://github.com/joaquinbejar)
+### **Contact Information**
+- **Author**: Joaquín Béjar García
+- **Email**: jb@taunais.com
+- **Telegram**: [@joaquin_bejar](https://t.me/joaquin_bejar)
+- **Repository**: <https://github.com/joaquinbejar/pretty-simple-display>
+- **Documentation**: <https://docs.rs/pretty-simple-display>
 
 We appreciate your interest and look forward to your contributions!
 
@@ -46,12 +49,11 @@ Repositories by the same author that this project depends on, and repositories t
 
 | Repository | Description |
 |------------|-------------|
-| [deribit-base](https://github.com/joaquinbejar/deribit-base) · [crates.io](https://crates.io/crates/deribit-base) | Common structs, traits and logic shared by the Deribit API clients. |
-| [deribit-http](https://github.com/joaquinbejar/deribit-http) · [crates.io](https://crates.io/crates/deribit-http) | HTTP REST API client for the Deribit trading platform. |
-| [deribit-websocket](https://github.com/joaquinbejar/deribit-websocket) · [crates.io](https://crates.io/crates/deribit-websocket) | WebSocket client for Deribit real-time market data and trading. |
-| [ig-client](https://github.com/joaquinbejar/ig-client) · [crates.io](https://crates.io/crates/ig-client) | Rust framework for the IG broker API (REST and Lightstreamer streaming). |
-| [market-maker-rs](https://github.com/joaquinbejar/market-maker-rs) | Quantitative market making strategies, starting with the Avellaneda-Stoikov model. |
-| [OptionStratLib](https://github.com/joaquinbejar/OptionStratLib) · [crates.io](https://crates.io/crates/optionstratlib) | Options pricing, Greeks, strategies and simulation library. |
-| [tastytrade](https://github.com/joaquinbejar/tastytrade) · [crates.io](https://crates.io/crates/tastytrade) | Rust library for trading through the tastytrade API. |
+| [deribit-base](https://github.com/joaquinbejar/deribit-base) | Common structs and traits shared by the Deribit API clients; uses the derives for model display. |
+| [deribit-http](https://github.com/joaquinbejar/deribit-http) | HTTP REST client for Deribit; uses the derives for request and response display. |
+| [deribit-websocket](https://github.com/joaquinbejar/deribit-websocket) | WebSocket client for Deribit; uses the derives for message display. |
+| [ig-client](https://github.com/joaquinbejar/ig-client) | Rust framework for the IG broker API; uses the derives for its API models. |
+| [market-maker-rs](https://github.com/joaquinbejar/market-maker-rs) | Quantitative market making library; uses the derives for its domain types. |
+| [tastytrade](https://github.com/joaquinbejar/tastytrade) | Rust library for trading through the tastytrade API; uses the derives for its API models. |
 
 <!-- related-projects:end -->
